@@ -1,0 +1,26 @@
+version: "3.0"
+services:
+  adminer:
+    image: adminer
+    environment:
+      - ADMINER_DESIGN=dracula
+    restart: always
+    ports:
+      - 8080:8080
+  mariadb:
+    image: linuxserver/mariadb:10.11.4
+    container_name: mariadb
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Stockholm
+      - REMOTE_SQL=http://URL1/your.sql,https://URL2/your.sql
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_USER=pontus
+      - MYSQL_ROOT_PASSWORD=521986a3
+      - MYSQL_PASSWORD=521986
+      - MYSQL_DATABASE=test
+    volumes:
+      - ./appdata/mariadb:/config
+    ports:
+      - 3306:3306/tcp
