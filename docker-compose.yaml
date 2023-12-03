@@ -8,18 +8,17 @@ services:
     ports:
       - 8080:8080
   mariadb:
-    image: linuxserver/mariadb:10.11.4
+    image: lscr.io/linuxserver/mariadb:latest
     container_name: mariadb
     restart: unless-stopped
     environment:
       - TZ=Europe/Stockholm
-      - REMOTE_SQL=http://URL1/your.sql,https://URL2/your.sql
       - PUID=1000
       - PGID=1000
       - MYSQL_USER=pontus
-      - MYSQL_ROOT_PASSWORD=521986a3
-      - MYSQL_PASSWORD=521986
-      - MYSQL_DATABASE=test
+      - MYSQL_ROOT_PASSWORD=12345
+      - MYSQL_PASSWORD=1234567
+      - MYSQL_DATABASE=djangoboard
     volumes:
       - ./appdata/mariadb:/config
     ports:
