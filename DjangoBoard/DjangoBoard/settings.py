@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_bootstrap5',
+    'boardApp'
 ]
 
 MIDDLEWARE = [
@@ -86,7 +88,7 @@ DATABASES = {
     'NAME': 'DjangoBoard',
     'USER':'pontus',
     'PASSWORD':'1234567',
-    'HOST':'192.168.50.243',
+    'HOST':'192.168.50.102',
     'PORT':'3306',
     }
 }
