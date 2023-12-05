@@ -2,17 +2,21 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+
 <div class="row mt-5">
 <div class="card col" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <p>{{listtorrent.name}}</p>
+      {% for my_dict in listtorrent %}
+      <p>{{ my_dict.name }}</p>
+      {% endfor %}
     </div>
   </div>
   <div class="card col" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
+      <h5 class="card-title"></h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
