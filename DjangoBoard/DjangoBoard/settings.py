@@ -71,24 +71,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'DjangoBoard.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-#
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'DjangoBoard',
     'USER':'pontus',
     'PASSWORD':'1234567',
-    'HOST':'192.168.50.102',
+    'HOST':'192.168.50.243',
     'PORT':'3306',
     }
 }
