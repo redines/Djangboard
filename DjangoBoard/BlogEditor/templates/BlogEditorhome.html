@@ -1,6 +1,17 @@
-{% extends "base.html" %}
+{% extends "blogbase.html" %}
 {% block title %}Blog Editor{% endblock %}
 
 {% block content %}
-
+{% for post in posts %}
+    <h3>{{ post.title }}</h3>
+    <small>
+        {{ post.created_on.date }} | Categories:
+        {% for category in post.categories.all %}
+            <p>
+                {{ category.name }}
+            </p>
+        {% endfor %}
+    </small>
+    <p>{{ post.body | slice:":400" }}...</p>
+{% endfor %}
 {% endblock content %}

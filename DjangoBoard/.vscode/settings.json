@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "192.168.50.243",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "mariadb-docker",
+            "database": "DjangoBoard",
+            "username": "pontus",
+            "connectionTimeout": 30,
+            "askForPassword": true
+        }
+    ]
+}
