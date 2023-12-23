@@ -3,15 +3,27 @@
 
 {% block content %}
 <h2>Edit posts</h2>
-<form method="post">
+<form class="form" method="post">
     {% csrf_token %}
-    <div>
-        {{ form.categories }}
+    <div class="form-group">
+        {% for category in form.categories %}
+            <div class="form-check form-check-inline">
+                {{ category }}
+            </div>
+        {% endfor %}
+    </div> 
+    <div class="form-group">
+        {{ form.body }}
     </div>
+    
     <div>
-        {{form.body }}
+        <span>
+            <a href="{% url 'blog_home' %}" class="btn btn-primary">Back</a>
+        </span>
+        <span>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </span>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
   
 {% endblock content %}

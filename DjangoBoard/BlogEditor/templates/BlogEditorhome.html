@@ -5,22 +5,23 @@
 
 {% for post in posts %}
 
-<div class="card">
+<div class="card w-50 mb-3">
     <div class="card-header">
     <h3>{{ post.title }}</h3>
     <div>
     <small>
         Published - {{ post.created_on.date }}
+        <h5>Categories</h5>
         {% for category in post.categories.all %}
-            <div>
-                <h5>Categories</h5>
+            <span>
                 {{ category.name }}
-            </div>
+                {% if not forloop.last %},{% endif %}
+            </span>
         {% endfor %}
     </small>
     </div>
     </div>
-    <div class="card-body">
+    <div class="card-body text-center">
         <p>{{ post.body | slice:":400" }}...</p>
     </div>
     <div>

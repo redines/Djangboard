@@ -1,20 +1,25 @@
 from django import forms
-from ..models import Post
+from ..models import Post,Category
 
 class EditForm(forms.ModelForm):
-    categories = forms.CharField(
-        max_length=60,
-        widget=forms.TextInput(
-           attrs={"class": "form-control"}
+    class Meta:
+        model = Post
+        fields = ['categories', 'body']
+
+    categories = forms.ModelMultipleChoiceField(
+        queryset=Category.objects.all(),
+        widget=forms.CheckboxSelectMultiple(
+            attrs={
+                "type":"checkbox" 
+            }
         )
     )
 
     body = forms.CharField(
         widget=forms.Textarea(
-        attrs={"class": "form-control"}
+        attrs={
+            "style": "resize: none;",
+            "class": "form-control",}
         )
     )
 
-    class Meta:
-        model = Post
-        fields = ['categories', 'body']
