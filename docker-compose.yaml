@@ -16,7 +16,7 @@ services:
       - TZ=Europe/Stockholm
       - PUID=1000
       - PGID=1000
-      - MYSQL_USER=userName
+      - MYSQL_USER=pontus
       - MYSQL_ROOT_PASSWORD=12345
       - MYSQL_PASSWORD=1234567
       - MYSQL_DATABASE=djangoboard
@@ -24,3 +24,18 @@ services:
       - ./appdata/mariadb:/config
     ports:
       - 3306:3306/tcp
+
+  django:
+    container_name: django
+    build:
+      context: ./DjangoBoard
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./DjangoBoard:/usr/src/app/
+    ports:
+      - 8001:8000
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=09300930930930j9j9j9j9
+    depends_on:
+      - mariadb
