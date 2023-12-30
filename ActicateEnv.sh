@@ -1,4 +1,4 @@
 #! /bin/bash
 
-cd ../venv/bin
+cd venv/bin
 source activate

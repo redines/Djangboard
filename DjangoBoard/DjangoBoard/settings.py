@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_bootstrap5',
+    'rest_framework',
     'boardApp',
-    'BlogEditor'
+    'BlogEditor',
 ]
 
 MIDDLEWARE = [
@@ -75,10 +76,10 @@ WSGI_APPLICATION = 'DjangoBoard.wsgi.application'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.mysql',
-    'NAME': 'DjangoBoard',
+    'NAME': 'djangoboard',
     'USER':'pontus',
     'PASSWORD':'1234567',
-    'HOST':'192.168.50.243',
+    'HOST':'192.168.50.117',
     'PORT':'3306',
     }
 }
