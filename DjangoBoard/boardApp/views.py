@@ -21,7 +21,11 @@ def home(request):
 
     with qbittorrentapi.Client(**conn_info) as qbt_client:
         for torrent in qbt_client.torrents_info():
-            new_dict = {"name":torrent.name, "state":torrent.state}
+            new_dict = {
+                "name":torrent.name, 
+                "state":torrent.state
+                }
+            
             listtorrent.append(new_dict)
     
     return render(request, "home.html",{'listtorrent':listtorrent,"app":qbt_client.app.version})

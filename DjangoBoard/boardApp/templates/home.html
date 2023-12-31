@@ -1,18 +1,35 @@
 {% extends "base.html" %}
+
 {% block title %}Home{% endblock %}
 
 {% block content %}
-
-<div class="row mt-5">
-<div class="card col">
-    <div class="card-body">
-      <h5 class="card-title">QBittorrent - {{app}}</h5>
-      {% for my_dict in listtorrent %}
+  <div class="row mt-5">
+    <div class="card col">
+      <h5 class="card-title">QBittorrent status</h5>
+      <div class="card-body">
         <div>
-          <h6>{{ my_dict.name }} - {{ my_dict.state }}</h6>
+          {% for my_dict in listtorrent %}
+            <div>
+              <h6>{{ my_dict.name }}</h6>
+              {% if my_dict.state == 'downloading' %}
+                <span class="text-success">{{ my_dict.state }}</span>
+              {% elif my_dict.state == 'uploading' %}
+                <span class="text-warning">{{ my_dict.state }}</span>
+              {% elif my_dict.state == 'error' %}
+                <span class="text-danger">{{ my_dict.state }}</span>
+              {% elif my_dict.state == 'stalledDL' %}
+                <span class="text-warning">{{ my_dict.state }}</span>
+              {% else %}
+                <span class="text-secondary">{{ my_dict.state }}</span>
+              {% endif %}
+            </div>
+            {% if not forloop.last %}
+              <hr />
+            {% endif %}
+          {% endfor %}
         </div>
-      {% endfor %}
+      </div>
+      <div class="card-footer text-body-secondary">Version: {{app}}</div>
     </div>
   </div>
-</div>
 {% endblock content %}
